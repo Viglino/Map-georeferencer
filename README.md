@@ -3,7 +3,7 @@ An Proof of concept to georeference maps with OL3.
 
 ## Description
 
-[View it online)(http://viglino.github.io/Map-georeferencer/)
+[View it online](http://viglino.github.io/Map-georeferencer/)
 
 You can download an image or give a valid link to get it online.
 The image will appear on the left side and on the right side is the reference map. 
