@@ -1,0 +1,140 @@
+html
+{	font-family: "Trebuchet MS",Helvetica,sans-serif;
+}
+#map,
+#img
+{	position:fixed;
+	width:50%;
+	height:100%;
+	top:0; bottom:0;
+	cursor: crosshair;
+}
+#map
+{	right:0;
+}
+#img
+{	left:0;
+}
+.fullpage #img
+{	top:auto;
+	width:200px;
+	height:200px;
+	z-index:2;
+	border-radius:0 10px 0 0;
+	background:#fff;
+	padding:5px;
+}
+.fullpage #img .ol-control
+{	display: none;
+}
+.fullpage #img .ol-fullpage 
+{	display: block;
+}
+.fullpage #img .ol-viewport
+{	border-radius:0 10px 0 0;
+}
+
+.fullpage #map
+{	left:0;
+	width:100%;
+}
+
+.ol-mask,
+.ol-overview,
+.ol-hemert
+{	top:0.5em;
+	right:0.5em;
+}
+.ol-hemert
+{	top:0.5em;
+	right:2.5em;
+}
+
+.ol-hemert.ol-active button
+{	background-color: rgba(0, 136, 60, 0.5);
+}
+.ol-hemert.ol-active button:focus,
+.ol-hemert.ol-active button:hover
+{	background-color: rgba(0, 136, 60, 0.9);
+}
+
+.ol-fullpage
+{	bottom:0.5em;
+	left:0.5em;
+}
+.ol-fullpage button:before
+{	content: "\00ab"
+}
+.fullpage .ol-fullpage button:before
+{	content: "\00bb"
+}
+				
+.fullpage .ol-fullpage
+{	position:fixed;
+	z-index:10;
+}
+
+.dialog .modal
+{	position:fixed;
+	width:100%;
+	height:100%;
+	left:0; right:0;
+	top:0; bottom:0;
+	background-color:rgba(0,0,0,0.5);
+}
+.dialog .inner
+{	position:absolute;
+	left:50%;
+	top: 20%;
+	margin-left:-250px;
+	width:500px;
+	background:#fff;
+	border:3px solid #369;
+	border-radius:5px;
+	padding:1em;
+	box-sizing: border-box;
+	overflow: hidden;
+	transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+}
+.dialog.hidden .inner
+{	transform: scale(0);
+	-webkit-transform: scale(0);
+}
+.dialog.hidden .modal
+{	display:none;
+}
+
+
+.btn
+{	color:#fff;
+	background:#369;
+	padding:0.5em;
+	text-decoration:none;
+	cursor:pointer;
+	display:inline-block;
+	box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+}
+
+h1
+{	color:#369;
+	margin: 0.25em 0;
+}
+
+.ol-mouse-position
+{	background: rgba(255,255,255,0.5);
+	top:auto;
+	right:auto;
+	bottom:8px;
+	left: 3em;
+	padding:0 0.5em;
+}
+
+.ol-info 
+{	right: 0.5em;
+	bottom:0.5em;
+}
+.ol-info button
+{	padding-bottom:0.3em;
+}
+	
