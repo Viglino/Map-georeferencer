@@ -207,6 +207,10 @@ wapp.setImageMap = function()
 wapp.load = function (name, dataURL)
 {	$(".dialog").addClass("hidden");
 	this.current = new wapp.img(name, dataURL, this.mapimg, this.map);
+	$("#loading").removeClass("hidden");
+	wapp.current.sourceLayer.image.getSource().once ("change", function()
+	{	$("#loading").addClass("hidden");
+	});
 };
 
 
