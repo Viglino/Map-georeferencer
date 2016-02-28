@@ -5,16 +5,20 @@ An Proof of concept to georeference maps with OL3.
 
 [View it online](http://viglino.github.io/Map-georeferencer/)
 
+![screenshot](screenshot.jpg)
+
 You can download an image or give a valid link to get it online.
 The image will appear on the left side and on the right side is the reference map. 
-Find same places on both maps. 
-A minimum of three control points are required to calculate the geographical position of the map. 
+Find same places on both maps.  
+A minimum of two control points are required to calculate the geographical position of the map. 
 The more control points that are added, the more precise the georeference is.
 
 The transformation model is an [Helmert](https://en.wikipedia.org/wiki/Helmert_transformation) or an affine  transform.
 
 The image map can appear as an overlay on the reference maps. 
 Side-by-side view is available as well, to compare any two maps next to each other. 
+
+You can crop the image by defining a crop polygon directly on the image.
 
 You can get parameters via the tranformation button on the bottom of the screen. 
 This transformation can be used with an [ol.source.geoimagesource](https://github.com/Viglino/ol3-ext/blob/gh-pages/layer/geoimagesource.js) in an OL3 map.
