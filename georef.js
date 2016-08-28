@@ -59,9 +59,49 @@ var wapp =
 		// Set the maps
 		this.setMap();
 		this.setImageMap();
+		
+		// Decode source
+		var p={}, hash = document.location.search;
+		if (hash)
+		{	hash = hash.replace(/(^#|^\?)/,"").split("&");
+			for (var i=0; i<hash.length;  i++) 
+			{	var t = hash[i].split("=");
+				p[t[0]] =decodeURIComponent(t[1]);
+			}
+		}
+		if (p.lon && p.lat) 
+		{	wapp.map.getView().setCenterAtLonlat([Number(p.lon),Number(p.lat)]);
+		}
+		if (p.photo)
+		{	var n = p.photo.split("/").pop();
+			n = n.substr(0, n.lastIndexOf('.')) || n;
+			wapp.load(n, p.photo);
+			
+			var d = wapp.distProj(0.001);
+			var r = Number(p.res)*d/2.54;
+			wapp.map.getView().setResolution(r);
 
+			wapp.mapimg.getView().setRotation((180-Number(p.ori))*Math.PI/180)
+			
+		}
 	}
 };
+
+(function(){
+/* Sphere pour le calcul des mesures geodesiques */
+var wgs84Sphere = new ol.Sphere(6378137);
+
+/** Distance projetee par rapport au centre 
+*/
+wapp.distProj = function(dist, c)
+{	if (!c) c = this.map.getView().getCenter();
+	var c2 = [c[0], c[1]+1]
+
+	return (dist / wgs84Sphere.haversineDistance(
+		ol.proj.transform(c, 'EPSG:3857', 'EPSG:4326'),
+		ol.proj.transform(c2, 'EPSG:3857', 'EPSG:4326')));
+}
+})();
 
 $(document).ready(function(){ wapp.initialize(); });
 
