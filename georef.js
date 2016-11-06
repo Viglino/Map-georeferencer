@@ -184,7 +184,7 @@ wapp.setImageMap = function()
 		});
 
 	this.mapimg.addControl(new ol.control.Toggle(
-		{	'class': "ol-fullpage",
+		{	'className': "ol-fullpage",
 			toggleFn: function(b)
 			{	$("body").toggleClass("fullpage");
 				wapp.map.updateSize();
@@ -194,7 +194,7 @@ wapp.setImageMap = function()
 		}));
 	
 	this.mapimg.addControl(new ol.control.Toggle(
-		{	'class': "ol-info",
+		{	'className': "ol-info",
 			html: "&phi;",
 			toggleFn: function(b)
 			{	var info = $("#info .inner textarea");
