@@ -15,6 +15,13 @@ html
 #img
 {	left:0;
 }
+
+#loading img
+{	max-height: 200px;
+	display: block;
+	margin: auto;
+}
+
 .fullpage #img
 {	top:auto;
 	width:200px;
@@ -41,20 +48,20 @@ html
 
 .ol-mask,
 .ol-overview,
-.ol-hemert
+.ol-helmert
 {	top:0.5em;
 	right:0.5em;
 }
-.ol-hemert
+.ol-helmert
 {	top:0.5em;
 	right:2.5em;
 }
 
-.ol-hemert.ol-active button
+.ol-helmert.ol-active button
 {	background-color: rgba(0, 136, 60, 0.5);
 }
-.ol-hemert.ol-active button:focus,
-.ol-hemert.ol-active button:hover
+.ol-helmert.ol-active button:focus,
+.ol-helmert.ol-active button:hover
 {	background-color: rgba(0, 136, 60, 0.9);
 }
 

@@ -74,7 +74,7 @@ wapp.img.prototype.addSource = function(name, dataURL, map)
 	// Mask control tool
 	var mk = new ol.control.Toggle(
 		{	html: "<i class='fa fa-crop'></i>",
-			'class': "ol-mask",
+			'className': "ol-mask",
 			toggleFn: function(b) 
 			{	if (!self.maskFeature) 
 				{	layers.imask.setActive(true);
@@ -171,7 +171,7 @@ wapp.img.prototype.addDest = function(dataURL, map)
 	var hc = new ol.control.Toggle(
 		{	on: !this.getSimilarity(), 
 			html: "H",
-			'class': "ol-hemert",
+			'className': "ol-helmert",
 			toggleFn: function(b) { self.setSimilarity(!b) }
 		});
 	map.addControl(hc);
@@ -179,7 +179,7 @@ wapp.img.prototype.addDest = function(dataURL, map)
 	// Show/hide overlay
 	var ov = new ol.control.Toggle(
 		{	html: "<i class='fa fa-eye fa-eye-slash'></i>",
-			'class': "ol-overview",
+			'className': "ol-overview",
 			toggleFn: function(b) 
 			{	if (layers.image) layers.image.setVisible(!layers.image.getVisible());
 			}
