@@ -179,7 +179,7 @@ wapp.img.prototype.addDest = function(dataURL, map)
 	// Show/hide overlay
 	var ov = new ol.control.Toggle(
 		{	html: "<i class='fa fa-eye fa-eye-slash'></i>",
-			'className': "ol-overview",
+			'className': "overview",
 			toggleFn: function(b) 
 			{	if (layers.image) layers.image.setVisible(!layers.image.getVisible());
 			}
@@ -338,7 +338,7 @@ wapp.img.prototype.calc = function()
 			{	name: this.sourceLayer.image.get("name"),
 				opacity: 1,
 				source: new ol.source.GeoImage(
-				{	image: this.sourceLayer.image.getSource().getImage(),
+				{	image: this.sourceLayer.image.getSource().getGeoImage(),
 					imageCenter: t,
 					imageScale: sc,
 					imageRotate: a,
