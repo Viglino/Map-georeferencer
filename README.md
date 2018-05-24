@@ -1,11 +1,11 @@
 # Map-georeferencer
-An Proof of concept to georeference maps with OL3.
+An Proof of concept to georeference maps with Openlayers (ol).
 
 ## Description
 
 [View it online](http://viglino.github.io/Map-georeferencer/)
 
-![screenshot](screenshot.jpg)
+[![screenshot](screenshot.jpg)](http://viglino.github.io/Map-georeferencer/)
 
 You can download an image or give a valid link to get it online.
 The image will appear on the left side and on the right side is the reference map. 
@@ -21,11 +21,11 @@ Side-by-side view is available as well, to compare any two maps next to each oth
 You can crop the image by defining a crop polygon directly on the image.
 
 You can get parameters via the tranformation button on the bottom of the screen. 
-This transformation can be used with an [ol.source.geoimagesource](https://github.com/Viglino/ol3-ext/blob/gh-pages/layer/geoimagesource.js) in an OL3 map.
+This transformation can be used with an [ol.source.geoimagesource](https://github.com/Viglino/ol3-ext/blob/gh-pages/layer/geoimagesource.js) in an ol map.
 
 ## Dependencies
 
-Map-georeferencer use [OL3](https://github.com/openlayers/ol3), [jQuery](https://jquery.com/) and [ol3-ext](https://github.com/Viglino/ol3-ext).
+Map-georeferencer use [ol](https://github.com/openlayers/ol3), [jQuery](https://jquery.com/) and [ol-ext](https://github.com/Viglino/ol-ext).
 
 ## Licence
 
