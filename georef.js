@@ -88,18 +88,28 @@ var wapp =
 };
 
 (function(){
-/* Sphere pour le calcul des mesures geodesiques */
-var wgs84Sphere = new ol.Sphere(6378137);
 
 /** Distance projetee par rapport au centre 
 */
-wapp.distProj = function(dist, c)
-{	if (!c) c = this.map.getView().getCenter();
+wapp.distProj = function(dist, c) {
+	if (!c) c = this.map.getView().getCenter();
+	var c2 = [c[0], c[1]+1]
+
+	return (dist / l.sphere.getistance(
+		ol.proj.transform(c, 'EPSG:3857', 'EPSG:4326'),
+		ol.proj.transform(c2, 'EPSG:3857', 'EPSG:4326')));
+
+	/* old version
+	// Sphere pour le calcul des mesures geodesiques 
+
+	var wgs84Sphere = new ol.Sphere(6378137);
+	if (!c) c = this.map.getView().getCenter();
 	var c2 = [c[0], c[1]+1]
 
 	return (dist / wgs84Sphere.haversineDistance(
 		ol.proj.transform(c, 'EPSG:3857', 'EPSG:4326'),
 		ol.proj.transform(c2, 'EPSG:3857', 'EPSG:4326')));
+	*/
 }
 })();
 
@@ -249,7 +259,7 @@ wapp.load = function (name, dataURL)
 	this.current = new wapp.img(name, dataURL, this.mapimg, this.map);
 	$("#loading").removeClass("hidden");
 	$("#loading img").attr('src', dataURL);
-	console.log(dataURL)
+	// console.log(dataURL)
 	wapp.current.sourceLayer.image.getSource().once ("change", function()
 	{	$("#loading").addClass("hidden");
 	});

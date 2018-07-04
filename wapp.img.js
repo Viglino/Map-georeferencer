@@ -92,7 +92,7 @@ wapp.img.prototype.addSource = function(name, dataURL, map)
 			if (!this.lastPoint.img) layers.iclick.setActive(true);
 			this.calc();
 		}
-	}, this);
+	}.bind(this));
 
 	// Modification => calc new transform
 	var modify = new ol.interaction.Modify(
