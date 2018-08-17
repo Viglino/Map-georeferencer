@@ -215,7 +215,7 @@ wapp.setImageMap = function()
 				}
 				var source = wapp.current.destLayer.image.getSource();
 				var options = 
-					{	url: /^data/.test(source.getImage().src) ? undefined : source.getImage().src ,
+					{	url: /^data/.test(source.getGeoImage().src) ? undefined : source.getGeoImage().src ,
 						imageCenter: source.getCenter(),
 						imageRotate: source.getRotation(),
 						imageScale: source.getScale(),
