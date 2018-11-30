@@ -291,7 +291,7 @@ wapp.exportMap = function() {
 		  "titre": "Sans titre",
 		  "description": "",
 		  "status": "brouillon",
-		  "controlParams": {"limitGeo": "1","zoomBtn": "1","selectLayer": "1","contextMap": "1","legend": "1","scaleLine": "1","pSearchBar": "0","coords": "1","attribution": "1"},
+		  "controlParams": {"limitGeo": "1","zoomBtn": "1","selectLayer": "1","contextMap": "0","legend": "0","scaleLine": "1","pSearchBar": "0","coords": "1","attribution": "1"},
 		  "proj": {"valeur": "EPSG:4326","unite": "ds"}
 		},
 		"layers": [layer],
