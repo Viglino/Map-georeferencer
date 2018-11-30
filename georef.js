@@ -294,7 +294,27 @@ wapp.exportMap = function() {
 		  "controlParams": {"limitGeo": "1","zoomBtn": "1","selectLayer": "1","contextMap": "0","legend": "0","scaleLine": "1","pSearchBar": "0","coords": "1","attribution": "1"},
 		  "proj": {"valeur": "EPSG:4326","unite": "ds"}
 		},
-		"layers": [layer],
+		"layers": [
+			{
+				"type": "Geoportail",
+				"name": "Plan IGN",
+				"titre": "sans-titre",
+				"visibility": true,
+				"layer": "GEOGRAPHICALGRIDSYSTEMS.PLANIGN"
+			},
+			layer,
+			{
+				"dessin": true,
+				"type": "Vector",
+				"name": "Dessin",
+				"titre": "sans-titre",
+				"visibility": true,
+				"opacity": 1,
+				"popupContent": {},
+				"style": {},
+				"features": []
+			}
+		],
 		"symbolLib": { },
 		"legende": { "legend": "","legendPos": "bottom-left","legendWidth": 295,"legendVisible": false,"legendtitle": "Ma légende","legendParam": {"lineHeight": 55,"width": 295} }	  
 	};
