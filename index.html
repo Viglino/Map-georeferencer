@@ -1,12 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<!----------------------------------------------------------
- 
-	Copyright (c) 2016 Jean-Marc VIGLINO, 
+<!--
+	Copyright (c) 2016-2018 Jean-Marc VIGLINO, 
 	released under CeCILL-B (french BSD like) licence: http://www.cecill.info/
-	
------------------------------------------------------------->
+-->
 	<title>Map-georeferencer</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -34,7 +32,10 @@
 	<script type="text/javascript" src="helmerttransform.js"></script>
 	<script type="text/javascript" src="georef.js"></script>
 	<script type="text/javascript" src="wapp.img.js"></script>
-	
+
+	<!-- Filesaver -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.0/dist/FileSaver.js"></script>
+
 	<style>
 		.github
 		{	position: absolute; 
@@ -89,6 +90,7 @@
 			<i class="fa fa-close fa-2x" style="float:right; color:#369; cursor:pointer" onclick="$('#info').addClass('hidden');" ></i>
 			<h1>Georef:</h1>
 			<textarea style="max-width:100%; min-width:100%; box-sizing:border-box; min-height:12em;"></textarea>
+			<button onclick="wapp.exportMap()" style="float:right;">export Map...</button>
 		</div>
 	</div>
 </body>

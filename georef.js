@@ -265,4 +265,39 @@ wapp.load = function (name, dataURL)
 	});
 };
 
-
+/** Export as map file
+ */
+wapp.exportMap = function() {
+	var source = wapp.current.destLayer.image.getSource();
+	var layer = {	
+		"name": "GeoImage",
+		"visibility": true,
+		"type": "GeoImage",
+		url: /^data/.test(source.getGeoImage().src) ? undefined : source.getGeoImage().src ,
+		imageCenter: source.getCenter(),
+		imageRotate: source.getRotation(),
+		imageScale: source.getScale(),
+		//crop: source.getCrop(),
+		imageMask: source.getMask()
+	};
+	var lonlat = ol.proj.toLonLat(wapp.map.getView().getCenter());
+	var carte = 
+	{
+		"param": {
+		  "lon": lonlat[0],
+		  "lat": lonlat[1],
+		  "rot": null,
+		  "zoom": wapp.map.getView().getZoom(),
+		  "titre": "Sans titre",
+		  "description": "",
+		  "status": "brouillon",
+		  "controlParams": {"limitGeo": "1","zoomBtn": "1","selectLayer": "1","contextMap": "1","legend": "1","scaleLine": "1","pSearchBar": "0","coords": "1","attribution": "1"},
+		  "proj": {"valeur": "EPSG:4326","unite": "ds"}
+		},
+		"layers": [layer],
+		"symbolLib": { },
+		"legende": { "legend": "","legendPos": "bottom-left","legendWidth": 295,"legendVisible": false,"legendtitle": "Ma légende","legendParam": {"lineHeight": 55,"width": 295} }	  
+	};
+	var file = new File([JSON.stringify(carte)], "map.carte", {type: "text/plain;charset=utf-8"});
+	saveAs(file);
+};
