@@ -265,6 +265,23 @@ wapp.img.prototype.addDest = function(dataURL, map)
 	return layers;
 }
 
+wapp.img.prototype.delControlPoint = function(id) {
+	var i, point = false;
+	for (i=0; point=this.controlPoints[i]; i++) {
+		if (point.id === id) break;
+	}
+	if (point) {
+		this.destLayer.vector.getSource().removeFeature(point.map);
+		this.sourceLayer.vector.getSource().removeFeature(point.img);
+		this.destLayer.vector.getSource().removeFeature(point.img2);
+		//this.lastID_--;
+		this.controlPoints.splice(i, 1);
+		this.lastPoint = {};
+		this.calc();
+		this.transformation.hasControlPoints = (this.controlPoints.length > 1);
+	}
+}
+
 wapp.img.prototype.addControlPoint = function(feature, img)
 {	if (feature.get('id')) return;
 	var id = this.lastID_ || 1;
@@ -366,6 +383,9 @@ wapp.img.prototype.calc = function()
 			for (var i=0; i<c.length; i++) c[i] = this.transform(c[i]);
 			this.destLayer.image.getSource().setMask (c);
 		}
+		this.destLayer.image.setVisible(true);
+	} else {
+		if (this.destLayer.image) this.destLayer.image.setVisible(false);
 	}
 }
 
