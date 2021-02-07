@@ -199,7 +199,7 @@ wapp.setMap = function()
   map.addInteraction(drop);
 
   map.on('click', function(e) {
-    if (e.originalEvent.ctrlKey) {
+    if (ol.events.condition.altKeyOnly(e)) {
       var features = wapp.map.getFeaturesAtPixel(e.pixel);
       for (var i=0, f; f=features[i]; i++) {
         if (f.get('id')) {
