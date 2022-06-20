@@ -282,25 +282,25 @@ wapp.img.prototype.delControlPoint = function(id) {
 	}
 }
 
-wapp.img.prototype.addControlPoint = function(feature, img)
-{	if (feature.get('id')) return;
+wapp.img.prototype.addControlPoint = function(feature, img) {
+	if (feature.get('id')) return;
 	var id = this.lastID_ || 1;
 
-	if (img)
-	{	this.sourceLayer.iclick.setActive(false);
+	if (img) {
+		this.sourceLayer.iclick.setActive(false);
 		this.lastPoint.img = feature;
 		feature.set('id',id);
 		var pt = this.transform (feature.getGeometry().getCoordinates());
-		if (pt) 
-		{	wapp.map.getView().setCenter(pt);
+		if (pt) {
+			wapp.map.getView().setCenter(pt);
 			this.lastPoint.map = new ol.Feature({ id:id, geometry: new ol.geom.Point(pt) });
 			this.destLayer.vector.getSource().addFeature(this.lastPoint.map);
 		}
-	}
-	else
-	{	this.destLayer.iclick.setActive(false);
+	} else {
+		this.destLayer.iclick.setActive(false);
 		this.lastPoint.map = feature;
 		feature.set('id',id);
+
 		var pt = this.revers (feature.getGeometry().getCoordinates());
 		if (pt) 
 		{	wapp.mapimg.getView().setCenter(pt);

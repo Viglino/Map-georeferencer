@@ -70,7 +70,7 @@ var wapp = {
       }
     }
     if (p.lon && p.lat) {
-      wapp.map.getView().setCenterAtLonlat([Number(p.lon),Number(p.lat)]);
+      wapp.map.getView().setCenter(ol.proj.fromLonLat([Number(p.lon),Number(p.lat)]));
     }
     if (p.photo) {
       var n = p.photo.split("/").pop();
@@ -148,18 +148,18 @@ wapp.setMap = function()
   ];
 
   // New map
-  var map = this.map = new ol.Map.Geoportail
-    ({	target: 'map',
-      key: apiKey,
-      view: new ol.View
-      ({	zoom: 12,
-        center: [259694, 6251211]
-      }),
-      controls: ol.control.defaults().extend
-      ([	new ol.control.LayerSwitcher()
-      ]),
-      layers: layers
-    });
+  var map = this.map = new ol.Map({
+    target: 'map',
+    view: new ol.View({
+      zoom: 12,
+      center: [259694, 6251211]
+    }),
+    controls: ol.control.defaults().extend([
+      new ol.control.LayerSwitcher()
+    ]),
+    layers: layers
+  });
+  map.addControl(new ol.control.SearchNominatim({centerOnSelect:true}));
   
   // Synchronize views
   map.getView().on("change:center", function(e) {
@@ -202,7 +202,8 @@ wapp.setMap = function()
     if (ol.events.condition.altKeyOnly(e)) {
       var features = wapp.map.getFeaturesAtPixel(e.pixel);
       for (var i=0, f; f=features[i]; i++) {
-        if (f.get('id')) {
+        f = f.get('features')[0];
+        if (f && f.get('id')) {
           wapp.current.delControlPoint(f.get('id'))
           break;
         }
@@ -216,7 +217,7 @@ wapp.setMap = function()
 */
 wapp.setImageMap = function() {
   // Map for the image
-  var map = this.mapimg = new ol.Map.Geoportail ({	
+  var map = this.mapimg = new ol.Map ({	
     target: 'img',
     view: new ol.View ({
       projection: pixelProjection,
