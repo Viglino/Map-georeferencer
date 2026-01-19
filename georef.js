@@ -255,7 +255,9 @@ wapp.setImageMap = function() {
         imageRotate: source.getRotation(),
         imageScale: source.getScale(),
         //crop: source.getCrop(),
-        imageMask: source.getMask()
+        imageMask: source.getMask(),
+        rotDeg: source.getRotation() * 180 / Math.PI,
+        center: ol.proj.toLonLat(source.getCenter()),
       };
       info.val(JSON.stringify(options).replace(/\,"/g,",\n\"").replace(/:/g,": ").replace(/^\{/,"").replace(/\}$/,""));
     }
