@@ -1,6 +1,9 @@
 # Map-georeferencer
 An Proof of concept to georeference maps with Openlayers (ol).
 
+> [!WARNING]  
+> Map-georefenrecer is now available in [IGNF-Ma-carte](https://github.com/IGNF-Ma-carte/mcgeoimage). See it [online](https://ignf-ma-carte.github.io/mcgeoimage/).
+
 ## Description
 
 [View it online](http://viglino.github.io/Map-georeferencer/)
